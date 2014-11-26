@@ -1,0 +1,16 @@
+{
+  "name": "computed",
+  "version": "0.1.0",
+  "description": "Computed properties for regular JavaScript objects",
+  "main": "computed.js",
+  "ignore": [
+    "spec",
+    ".gitignore",
+    "gulpfile.js",
+    "package.json"
+  ],
+  "devDependencies": {
+    "es6-shim": "~0.21.0",
+    "es5-shim": "~4.0.3"
+  }
+}
