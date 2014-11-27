@@ -467,15 +467,15 @@ To set a property:
 ```javascript
 var user = {profile: {}};
 
-user.set('name', 'John Doe');
-user.set('profile.twitter', 'johndoe');
+Computed.set(user, 'name', 'John Doe');
+Computed.set(user, 'profile.twitter', 'johndoe');
 ```
 
 To read a property, even when it's computed:
 
 ```javascript
-user.get('name');
-user.get('profile.twitter');
+Computed.get(user, 'name');
+Computed.get(user, 'profile.twitter');
 ```
 
 The next section covers how you can use Computed in constructor functions.
