@@ -21,10 +21,27 @@ var Computed = (function(){
 
   // Get property from target object.
   var get = function(target, property) {
-    var value = target[property];
+    // Transpose arguments.
+    if (arguments.length === 1) {
+      property = target;
+      target = this;
+    }
 
-    if (typeof(value) === 'function') {
-      value = value.call(target);
+    var chain = property.split('.');
+    var value;
+
+    while (property = chain.shift()) {
+      value = target[property];
+
+      if (typeof(value) === 'function') {
+        value = value.call(target);
+      }
+
+      target = value;
+
+      if (target === undefined) {
+        break;
+      }
     }
 
     return value;
@@ -33,12 +50,32 @@ var Computed = (function(){
 
   // Set property on target object.
   var set = function(target, property, value) {
+    // Transpose arguments.
+    if (arguments.length === 2) {
+      value = property;
+      property = target;
+      target = this;
+    }
+
+    var key;
+    var chain = property.split('.');
+    property = chain.pop();
+
+    while ((key = chain.shift()) && !isNone(target)) {
+      target = target[key];
+    }
+
+    if (!target) {
+      return;
+    }
+
     if (typeof(target[property]) === 'function') {
       target[property].call(target, value);
     } else {
       target[property] = value;
     }
   };
+  Computed.set = set;
 
   // Convert value to boolean equivalent.
   var bool = function(value) {

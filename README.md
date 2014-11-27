@@ -460,6 +460,51 @@ var hamster = {
 hamster.uniqueFruits(); // ['banana', 'grape', 'kale']
 ```
 
+### Getters and setters
+
+To set a property:
+
+```javascript
+var user = {profile: {}};
+
+user.set('name', 'John Doe');
+user.set('profile.twitter', 'johndoe');
+```
+
+To read a property, even when it's computed:
+
+```javascript
+user.get('name');
+user.get('profile.twitter');
+```
+
+The next section covers how you can use Computed in constructor functions.
+
+### Constructor functions
+
+Computed can be used to define prototype properties.
+
+```javascript
+// Set a base constructor function, so we don't need
+// to do this every time.
+function Base() {}
+Base.prototype = {
+  get: Computed.get,
+  set: Computed.set
+};
+
+// Define the User constructor function.
+function User() {}
+User.prototype = Object.create(Base.prototype);
+User.prototype.hasConfirmedAccount = Computed.bool('accountConfirmedAt');
+
+// Instantiate a new user.
+var user = new User();
+user.get('hasConfirmedAccount'); // false
+user.set('accountConfirmedAt', new Date());
+user.get('hasConfirmedAccount'); // true
+```
+
 ## Maintainer
 
 - Nando Vieira - <http://nandovieira.com.br>
