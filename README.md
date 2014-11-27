@@ -513,10 +513,10 @@ user.get('hasConfirmedAccount'); // true
 
 Once you've made your great commits:
 
-1. [Fork](http://help.github.com/forking/) Composed.js
+1. [Fork](http://help.github.com/forking/) Computed.js
 2. Create a topic branch - `git checkout -b my_branch`
 3. Push to your branch - `git push origin my_branch`
-4. [Create an Issue](http://github.com/fnando/composed/issues) with a link to your branch
+4. [Create an Issue](http://github.com/fnando/computed/issues) with a link to your branch
 5. That's it!
 
 Please respect the indentation rules and code style.
