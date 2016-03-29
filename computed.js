@@ -5,7 +5,19 @@
  * Copyright 2014 — Nando Vieira
  * Released under the MIT license
  */
-var Computed = (function(){
+ (function(factory) {
+   if (typeof module !== "undefined" && module.exports) {
+     // Node/CommonJS
+     module.exports = factory();
+   } else if (typeof define === "function" && define.amd) {
+     // AMD
+     var self = this;
+     define("computed", function() { return factory(); });
+   } else {
+     // Browser globals
+     window.Computed = factory();
+   }
+ }(function() {
   var Computed = {};
 
   // Shortcut for array's slice function.
@@ -392,4 +404,4 @@ var Computed = (function(){
   };
 
   return Computed;
-})();
+}));

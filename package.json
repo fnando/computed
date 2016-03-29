@@ -12,6 +12,7 @@
   },
   "scripts": {
     "test": "./node_modules/.bin/gulp spec",
-    "watch": "./node_modules/.bin/gulp default watch"
+    "watch": "./node_modules/.bin/gulp default watch",
+    "dist": "./node_modules/.bin/gulp default"
   }
 }
