@@ -1,4 +1,4 @@
-# Composed.js
+# Computed.js
 
 [![Build Status](https://travis-ci.org/fnando/computed.svg)](https://travis-ci.org/fnando/computed)
 
@@ -20,7 +20,7 @@ A computed property that performs a logical `and` on the original values.
 All values use JavaScript's truthy/falsy checking, with
 exception of numbers (even zero is considered truthy).
 
-```javascript
+```js
 var hamster = {
   readyForCamp: Computed.and('hasTent', 'hasBackpack')
 };
@@ -36,10 +36,10 @@ hamster.readyForCamp(); // true
 
 Creates a new property that is an alias for another property on an object.
 
-```javascript
+```js
 var post = {
-    id: 'some-post'
-  , slug: Computed.alias('id')
+  id: 'some-post',
+  slug: Computed.alias('id')
 };
 
 post.slug(); // some-post
@@ -52,7 +52,7 @@ post.id; // a-new-post
 A computed property that returns the first truthy value from a list of
 dependent properties.
 
-```javascript
+```js
 var hamster = {
   hasClothes: Computed.any('hat', 'shirt')
 };
@@ -67,12 +67,12 @@ hamster.hasClothes(); // 'Hawaiian Shirt'
 A computed property that returns an object containing all listed
 properties. Aliased as `Computed.attrs`.
 
-```javascript
+```js
 var hamster = {
-    name: 'John'
-  , age: 42
-  , salary: 1000
-  , attributes: Computed.attributes('name', 'age')
+  name: 'John',
+  age: 42,
+  salary: 1000,
+  attributes: Computed.attributes('name', 'age')
 };
 
 hamster.attributes(); // {name: 'John', age: 42}
@@ -82,7 +82,7 @@ hamster.attributes(); // {name: 'John', age: 42}
 
 A computed property that converts the provided dependent property into a boolean value.
 
-```javascript
+```js
 var hamster = {
   hasBananas: Computed.bool('numBananas')
 };
@@ -101,7 +101,7 @@ hamster.hasBananas(); // false
 A computed property that returns the array of values for the provided
 dependent properties.
 
-```javascript
+```js
 var hamster = {
   clothes: Computed.collect('hat', 'shirt')
 };
@@ -117,10 +117,10 @@ hamster.clothes(); // ['Camp Hat', 'Camp Shirt']
 A computed property that returns true if the value of the dependent
 property is null/undefined, an empty string, or empty array.
 
-```javascript
+```js
 var todoList = {
-    todos: ['Unit Test', 'Documentation', 'Release']
-  , done: Computed.empty('todos')
+  todos: ['Unit Test', 'Documentation', 'Release'],
+  done: Computed.empty('todos')
 };
 
 todoList.done(); // false
@@ -133,7 +133,7 @@ todoList.done(); // true
 A computed property that returns true if the provided dependent property
 is equal to the given value.
 
-```javascript
+```js
 var hamster = {
   napTime: Computed.equal('state', 'sleepy')
 };
@@ -153,17 +153,17 @@ The callback method you provide should have the following signature: `function(i
 - `item` is the current item in the iteration.
 - `index` is the integer index of the current item in the iteration.
 
-```javascript
+```js
 var hamster = {
-    chores: [
-      {name: 'cook', done: true},
-      {name: 'clean', done: true},
-      {name: 'write more unit tests', done: false}
-    ]
+  chores: [
+    {name: 'cook', done: true},
+    {name: 'clean', done: true},
+    {name: 'write more unit tests', done: false}
+  ],
 
-  , remainingChores: Computed.filter('chores', function(chore, index) {
-      return !chore.done;
-    })
+  remainingChores: Computed.filter('chores', function(chore, index) {
+    return !chore.done;
+  })
 };
 
 hamster.remainingChores(); // [{name: 'write more unit tests', done: false}]
@@ -173,15 +173,15 @@ hamster.remainingChores(); // [{name: 'write more unit tests', done: false}]
 
 Filters the array by the property and value.
 
-```javascript
+```js
 var hamster = {
-    chores: [
-      {name: 'cook', done: true},
-      {name: 'clean', done: true},
-      {name: 'write more unit tests', done: false}
-    ]
+  chores: [
+    {name: 'cook', done: true},
+    {name: 'clean', done: true},
+    {name: 'write more unit tests', done: false}
+  ],
 
-  , remainingChores: Computed.filterBy('chores', 'done', false)
+  remainingChores: Computed.filterBy('chores', 'done', false)
 };
 
 hamster.remainingChores(); // [{name: 'write more unit tests', done: false}]
@@ -192,7 +192,7 @@ hamster.remainingChores(); // [{name: 'write more unit tests', done: false}]
 A computed property that returns true if the provided dependent property is
 greater than the provided value.
 
-```javascript
+```js
 var hamster = {
   hasTooManyBananas: Computed.gt('numBananas', 10)
 };
@@ -209,7 +209,7 @@ hamster.hasTooManyBananas(); // true
 A computed property that returns true if the provided dependent property is
 greater than or equal to the provided value.
 
-```javascript
+```js
 var hamster = {
   hasTooManyBananas: Computed.gte('numBananas', 10)
 };
@@ -226,7 +226,7 @@ hamster.hasTooManyBananas(); // true
 A computed property that returns true if the provided dependent property
 is less than the provided value.
 
-```javascript
+```js
 var hamster = {
   needsMoreBananas: Computed.lt('numBananas', 3)
 };
@@ -243,7 +243,7 @@ hamster.needsMoreBananas(); // true
 A computed property that returns true if the provided dependent property
 is less than or equal to the provided value.
 
-```javascript
+```js
 var hamster = {
   needsMoreBananas: Computed.lte('numBananas', 3)
 };
@@ -263,13 +263,13 @@ The callback method you provide should have the following signature: `function(i
 - item is the current item in the iteration.
 - index is the integer index of the current item in the iteration.
 
-```javascript
+```js
 var hamster = {
-    chores: ['clean', 'write more unit tests']
+  chores: ['clean', 'write more unit tests'],
 
-  , excitingChores: Computed.map('chores', function(chore, index) {
-      return chore.toUpperCase() + '!';
-    })
+  excitingChores: Computed.map('chores', function(chore, index) {
+    return chore.toUpperCase() + '!';
+  })
 };
 
 hamster.excitingChores(); // ['CLEAN!', 'WRITE MORE UNIT TESTS!']
@@ -279,10 +279,10 @@ hamster.excitingChores(); // ['CLEAN!', 'WRITE MORE UNIT TESTS!']
 
 Maps the array by the property and value.
 
-```javascript
+```js
 var info = {
-    countries: [{id: 1, name: 'Brazil'}, {id: 2, name: 'USA'}]
-  , names: Computed.mapBy('countries', 'name')
+  countries: [{id: 1, name: 'Brazil'}, {id: 2, name: 'USA'}],
+  names: Computed.mapBy('countries', 'name')
 };
 
 object.names(); // ['Brazil', 'USA']
@@ -294,7 +294,7 @@ A computed property which matches the original value for the dependent
 property against a given RegExp, returning true if they values matches
 the RegExp and false if it does not.
 
-```javascript
+```js
 var user = {
   hasValidEmail: Computed.match('email', /^.+@.+\..+$/)
 };
@@ -311,10 +311,10 @@ user.hasValidEmail(); // true
 A computed property that calculates the maximum value in the dependent
 array. This will return `-Infinity` when the dependent array is empty.
 
-```javascript
+```js
 var object = {
-    numbers: [1,2,3,4,5]
-  , maxNumber: Computed.max('numbers')
+  numbers: [1,2,3,4,5],
+  maxNumber: Computed.max('numbers')
 };
 
 object.maxNumber(); // 5
@@ -325,10 +325,10 @@ object.maxNumber(); // 5
 A computed property that calculates the minimum value in the dependent
 array. This will return `Infinity` when the dependent array is empty.
 
-```javascript
+```js
 var object = {
-    numbers: [1,2,3,4,5]
-  , minNumber: Computed.min('numbers')
+  numbers: [1,2,3,4,5],
+  minNumber: Computed.min('numbers')
 };
 
 object.minNumber(); // 1
@@ -339,7 +339,7 @@ object.minNumber(); // 1
 A computed property that returns true if the value of the dependent
 property is `null` or `undefined`.
 
-```javascript
+```js
 var hamster = {
   isHungry: Computed.none('food')
 };
@@ -356,10 +356,10 @@ hamster.isHungry(); // true
 A computed property that returns the inverse boolean value of the original
 value for the dependent property.
 
-```javascript
+```js
 var user = Ember.Object.extend({
-    loggedIn: false
-  , isAnonymous: Ember.computed.not('loggedIn')
+  loggedIn: false,
+  isAnonymous: Computed.not('loggedIn')
 });
 
 user.isAnonymous(); // true
@@ -372,10 +372,10 @@ user.isAnonymous(); // false
 A computed property that returns true if the value of the dependent
 property is NOT null, an empty string, or empty array.
 
-```javascript
+```js
 var hamster = {
-    backpack: ['Food', 'Sleeping Bag', 'Tent']
-  , hasStuff: Computed.notEmpty('backpack')
+  backpack: ['Food', 'Sleeping Bag', 'Tent'],
+  hasStuff: Computed.notEmpty('backpack')
 };
 
 hamster.hasStuff();           // true
@@ -388,7 +388,7 @@ hamster.hasStuff();           // false
 A computed property which performs a logical or on the original values
 for the provided dependent properties.
 
-```javascript
+```js
 var hamster = {
   readyForRain: Computed.or('hasJacket', 'hasUmbrella')
 });
@@ -416,18 +416,18 @@ should return 0.
 Therefore, if this function is comparing some numeric values, simple
 itemA - itemB can be used instead of series of if.
 
-```javascript
+```js
 var info = {
-    names: ['John', 'Bob', 'Mary']
-  , sortedNames: Computed.sort('names', function(a, b){
-      if (a > b) {
-        return 1;
-      } else if (a < b) {
-        return -1;
-      }
-
+  names: ['John', 'Bob', 'Mary'],
+  sortedNames: Computed.sort('names', function(a, b){
+    if (a > b) {
       return 1;
-    })
+    } else if (a < b) {
+      return -1;
+    }
+
+    return 1;
+  })
 };
 
 info.sortedNames(); // ['Bob', 'John', 'Mary']
@@ -437,10 +437,10 @@ info.sortedNames(); // ['Bob', 'John', 'Mary']
 
 Sorts the array by the property and value.
 
-```javascript
+```js
 var info = {
-    users: [{name: 'John'}, {name: 'Bob'}, {name: 'Mary'}]
-  , sortedNames: Computed.sortBy('users', 'name')
+  users: [{name: 'John'}, {name: 'Bob'}, {name: 'Mary'}],
+  sortedNames: Computed.sortBy('users', 'name')
 };
 
 info.sortedNames(); // ['Bob', 'John', 'Mary']
@@ -451,10 +451,10 @@ info.sortedNames(); // ['Bob', 'John', 'Mary']
 A computed property which returns a new array with all the unique elements
 from one or more dependent arrays.
 
-```javascript
+```js
 var hamster = {
-    fruits: ['banana', 'grape', 'kale', 'banana']
-  , uniqueFruits: Computed.uniq('fruits')
+  fruits: ['banana', 'grape', 'kale', 'banana'],
+  uniqueFruits: Computed.uniq('fruits')
 };
 
 hamster.uniqueFruits(); // ['banana', 'grape', 'kale']
@@ -464,7 +464,7 @@ hamster.uniqueFruits(); // ['banana', 'grape', 'kale']
 
 To set a property:
 
-```javascript
+```js
 var user = {profile: {}};
 
 Computed.set(user, 'name', 'John Doe');
@@ -473,7 +473,7 @@ Computed.set(user, 'profile.twitter', 'johndoe');
 
 To read a property, even when it's computed:
 
-```javascript
+```js
 Computed.get(user, 'name');
 Computed.get(user, 'profile.twitter');
 ```
@@ -484,7 +484,7 @@ The next section covers how you can use Computed in constructor functions.
 
 Computed can be used to define prototype properties.
 
-```javascript
+```js
 // Set a base constructor function, so we don't need
 // to do this every time.
 function Base() {}
