@@ -3,10 +3,10 @@ describe('Computed.attributes', function(){
 
   beforeEach(function(){
     object = {
-        name: 'John'
-      , age: 42
-      , salary: 1000
-      , attributes: Computed.attributes('name', 'age')
+      name: 'John',
+      age: 42,
+      salary: 1000,
+      attributes: Computed.attributes('name', 'age')
     };
   });
 

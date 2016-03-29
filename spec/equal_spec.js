@@ -3,8 +3,8 @@ describe('Computed.equal', function(){
 
   beforeEach(function(){
     object = {
-        state: 'sleepy'
-      , napTime: Computed.equal('state', 'sleepy')
+      state: 'sleepy',
+      napTime: Computed.equal('state', 'sleepy')
     };
   });
 

@@ -3,8 +3,8 @@ describe('Computed.max', function(){
 
   beforeEach(function(){
     object = {
-        numbers: [1,2,3,4,5]
-      , maxNumber: Computed.max('numbers')
+      numbers: [1,2,3,4,5],
+      maxNumber: Computed.max('numbers')
     };
   });
 

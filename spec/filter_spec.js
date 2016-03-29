@@ -3,10 +3,10 @@ describe('Computed.filter', function(){
 
   beforeEach(function(){
     object = {
-        tasks: [{id: 1, state: 'done'}, {id: 2, state: 'pending'}]
-      , pendingTasks: Computed.filter('tasks', function(task){
-          return task.state === 'pending';
-        })
+      tasks: [{id: 1, state: 'done'}, {id: 2, state: 'pending'}],
+      pendingTasks: Computed.filter('tasks', function(task){
+        return task.state === 'pending';
+      })
     };
   });
 

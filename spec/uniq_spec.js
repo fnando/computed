@@ -3,10 +3,10 @@ describe('Computed.uniq', function(){
 
   beforeEach(function(){
     object = {
-        even: [0, 0, 2, 2]
-      , odd: [1, 1, 3, 3]
-      , uniqueNumbers: Computed.uniq('even', 'odd')
-      , numbers: Computed.sort('uniqueNumbers')
+      even: [0, 0, 2, 2],
+      odd: [1, 1, 3, 3],
+      uniqueNumbers: Computed.uniq('even', 'odd'),
+      numbers: Computed.sort('uniqueNumbers')
     };
   });
 

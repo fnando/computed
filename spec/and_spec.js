@@ -3,9 +3,9 @@ describe('Computed.and', function(){
 
   beforeEach(function(){
     object = {
-        hasTent: true
-      , hasBackpack: true
-      , readyForCamp: Computed.and('hasTent', 'hasBackpack')
+      hasTent: true,
+      hasBackpack: true,
+      readyForCamp: Computed.and('hasTent', 'hasBackpack')
     };
   });
 

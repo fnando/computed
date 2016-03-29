@@ -8,13 +8,13 @@ gulp.task('spec', function(){
   return gulp
     .src('spec/**/*_spec.js')
     .pipe(jasmine({
-        integration: true
-      , vendor: [
-            'bower_components/es6-shim/es6-shim.js'
-          , 'bower_components/es5-shim/es5-shim.js'
-          , 'computed.js'
-        ]
-      , keepRunner: 'spec'
+      integration: true,
+      vendor: [
+        'bower_components/es6-shim/es6-shim.js',
+        'bower_components/es5-shim/es5-shim.js',
+        'computed.js'
+      ],
+      keepRunner: 'spec'
     }))
   ;
 });

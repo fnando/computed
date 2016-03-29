@@ -3,12 +3,12 @@ describe('Computed.alias', function(){
 
   beforeEach(function(){
     object = {
-        slug: 'some-slug'
-      , id: Computed.alias('slug')
-      , permalink: Computed.alias('id')
-      , numbers: [3,1,2]
-      , sortedNumbers: Computed.sort('numbers')
-      , orderedNumbers: Computed.alias('sortedNumbers')
+      slug: 'some-slug',
+      id: Computed.alias('slug'),
+      permalink: Computed.alias('id'),
+      numbers: [3,1,2],
+      sortedNumbers: Computed.sort('numbers'),
+      orderedNumbers: Computed.alias('sortedNumbers')
     };
   });
 

@@ -3,8 +3,8 @@ describe('Computed.filterBy', function(){
 
   beforeEach(function(){
     object = {
-        tasks: [{id: 1, state: 'done'}, {id: 2, state: 'pending'}]
-      , pendingTasks: Computed.filterBy('tasks', 'state', 'pending')
+      tasks: [{id: 1, state: 'done'}, {id: 2, state: 'pending'}],
+      pendingTasks: Computed.filterBy('tasks', 'state', 'pending')
     };
   });
 

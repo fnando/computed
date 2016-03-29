@@ -3,8 +3,8 @@ describe('Computed.sortBy', function(){
 
   beforeEach(function(){
     object = {
-        users: [{name: 'John'}, {name: 'Bob'}, {name: 'Mary'}]
-      , sortedUsers: Computed.sortBy('users', 'name')
+      users: [{name: 'John'}, {name: 'Bob'}, {name: 'Mary'}],
+      sortedUsers: Computed.sortBy('users', 'name')
     };
   });
 

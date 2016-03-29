@@ -3,8 +3,8 @@ describe('Computed.min', function(){
 
   beforeEach(function(){
     object = {
-        numbers: [1,2,3,4,5]
-      , minNumber: Computed.min('numbers')
+      numbers: [1,2,3,4,5],
+      minNumber: Computed.min('numbers')
     };
   });
 

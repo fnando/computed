@@ -3,9 +3,9 @@ describe('Computed.collect', function(){
 
   beforeEach(function(){
     object = {
-        name: 'John Doe'
-      , username: 'johndoe'
-      , values: Computed.collect('name', 'username')
+      name: 'John Doe',
+      username: 'johndoe',
+      values: Computed.collect('name', 'username')
     };
   });
 

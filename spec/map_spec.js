@@ -3,10 +3,10 @@ describe('Computed.map', function(){
 
   beforeEach(function(){
     object = {
-        countries: [{id: 1, name: 'Brazil'}, {id: 2, name: 'USA'}]
-      , names: Computed.map('countries', function(country){
-          return country.name;
-        })
+      countries: [{id: 1, name: 'Brazil'}, {id: 2, name: 'USA'}],
+      names: Computed.map('countries', function(country){
+        return country.name;
+      })
     };
   });
 
