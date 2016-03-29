@@ -16,3 +16,6 @@ install:
 
 script:
   - gulp spec
+
+notifications:
+  email: false
