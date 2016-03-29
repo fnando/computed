@@ -1,7 +1,7 @@
 {
   "name": "computed",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.2.0",
+  "main": "computed.js",
   "devDependencies": {
     "bower": "^1.3.12",
     "gulp": "^3.8.10",
