@@ -12,7 +12,18 @@ You may have to include [es5-shim](https://github.com/es-shims/es5-shim)
 and [es6-shim](https://github.com/paulmillr/es6-shim) depending on the
 browser you're targeting.
 
+## Installing
+
+- NPM: `npm install fnando/computed` (latest) or `npm install fnando/computed#v0.2.0` (specific version)
+- Bower: `bower install fnando/computed` (latest) or `npm install fnando/computed#v0.2.0` (specific version)
+
 ## Usage
+
+Importing module:
+
+- Node.js: `const Computed = require('computed');`
+- AMD: `define(['computed'], function(Computed) {});`
+- Browser: `Computed`
 
 ### Computed.and
 
