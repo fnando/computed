@@ -9,5 +9,9 @@
     "gulp-uglifyjs": "^0.6.2",
     "gulp-watch": "^4.3.5",
     "run-sequence": "^1.0.2"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/gulp spec",
+    "watch": "./node_modules/.bin/gulp default watch"
   }
 }

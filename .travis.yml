@@ -15,7 +15,7 @@ install:
   - "bower install"
 
 script:
-  - gulp spec
+  - npm test
 
 notifications:
   email: false

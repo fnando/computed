@@ -529,13 +529,13 @@ Make sure you have [Phantom.js](http://phantomjs.org) installed.
 ```
 $ npm install
 $ bower install
-$ gulp default watch
+$ npm run watch
 ```
 
 ### Running tests manually
 
 ```
-$ gulp spec
+$ npm test
 ```
 
 ## License
